@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Early Alzheimers</title>
+    <script src="draw.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+<body style="background-color:#c2e7ff;">
+<img src = "brnsgr.jpg"  width = 200 height = 200>
+<input type="button" value="-" id="brnminus" onclick="minusbrnsgr()">
+<input type="text" size="10" value="0" id="brncount">
+<input type="button" value="+" id="brnplus" onclick="addbrnsgr()">
+cups
+<br><br>
+<img src = "sugar.png"   width = 200 height = 200>
+<input type="button" value="-" id="sgrminus" onclick="minussgr()">
+<input type="text" size="10" value="0" id="sgrcount">
+<input type="button" value="+" id="sgrplus" onclick="addsgr()">
+cups
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src = "oven.jpg"   width = 300>
+
+<br><br>
+<img src = "butter.png" width=200>
+<input type="button" value="-" id="btrminus" onclick="minusbutter()">
+<input type="text" size="10" value="0" id="buttercount">
+<input type="button" value="+" id="btrplus" onclick="addbutter()">
+sticks
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button class="button button3" onclick="mix()">MIX</button>
+<br><br>
+<img src = "flour.png" width = 200 height = 200>
+<input type="button" value="-" id="flourminus" onclick="minusflour()">
+<input type="text" size="10" value="0" id="flourcount">
+<input type="button" value="+" id="flourplus" onclick="addflour()">
+cups
+<br><br>
+<img src = "bkpwdr.png" width = 200 height = 200>
+<input type="button" value="-" id="bkpwdrminus" onclick="minusbkpwdr()">
+<input type="text" size="10" value="0" id="bkpwdrcount">
+<input type="button" value="+" id="bkpwdrplus" onclick="addbkpwdr()">
+tsp
+<br>
+<img src="therm.png" width=50 height=200>
+<select id="tempselect" onchange="tempselect()">
+   <option value="Select an Option">Select an Option</option>
+  <option value="200" >200</option>
+  <option value="225">225</option>
+  <option value="350">350</option>
+  <option value="375">375</option>
+  <option value="425">425</option>
+</select>
+<br><br>
+  <img src="stopwatch.png">
+ 
+<select id="timeselect" onchange="timeselect()">
+   <option value="Select an Option">Select an Option</option>
+  <option value="5" >5</option>
+  <option value="10">10</option>
+  <option value="15">15</option>
+  <option value="20">20</option>
+  <option value="25">25</option>
+</select>
+
+
+<script>
+player_points=Cookies.get("newpoints");
+player_points=parseInt(player_points);
+console.log(player_points);
+var brnsgr=0;
+var sgr=0;
+var butter=0;
+var flour=0;
+var bkpwdr=0;
+var temp=0;
+var time=0;
+
+function tempselect(){
+temp=document.getElementById("tempselect").value;
+}
+
+function timeselect(){
+time=document.getElementById("timeselect").value;
+}
+
+function addbrnsgr(){
+  var brnsgrEl = document.getElementById("brncount");
+      brnsgr+=1/4;
+      brnsgrEl.value = brnsgr;
+
+
+}
+
+function minusbrnsgr(){
+  var brnsgrEl = document.getElementById("brncount");
+  if(brnsgr!=0){brnsgr-=1/4;}
+      brnsgrEl.value = brnsgr;
+}
+
+function addsgr(){
+  var sgrEl = document.getElementById("sgrcount");
+      sgr+=1/4;
+      sgrEl.value = sgr;
+}
+
+function minussgr(){
+  var sgrEl = document.getElementById("sgrcount");
+      if(sgr!=0){sgr-=1/4;}
+      sgrEl.value = sgr;
+
+}
+
+function addbutter(){
+  var butterEl = document.getElementById("buttercount");
+      butter+=1/2;
+      butterEl.value = butter;
+}
+
+function minusbutter(){
+  var butterEl = document.getElementById("buttercount");
+      if(butter!=0){butter-=1/2;}
+      butterEl.value = butter;
+}
+
+function addflour(){
+  var flourEl = document.getElementById("flourcount");
+      flour+=1/2;
+      flourEl.value = flour;
+}
+
+function minusflour(){
+  var flourEl = document.getElementById("flourcount");
+      if(flour!=0){flour-=1/2;}
+      flourEl.value = flour;
+}
+
+function addbkpwdr(){
+  var bkpwdrEl = document.getElementById("bkpwdrcount");
+      bkpwdr+=1/4;
+      bkpwdrEl.value = bkpwdr;
+}
+
+function minusbkpwdr(){
+  var bkpwdrEl = document.getElementById("bkpwdrcount");
+      if(bkpwdr!=0){bkpwdr-=1/4;}
+      bkpwdrEl.value = bkpwdr;
+}
+
+
+
+
+
+
+function mix(){
+alert("mixing...");
+if(brnsgr==0.25){player_points+=1;}
+if(sgr==0.5){player_points+=1;}
+if(butter==1){player_points+=1;}
+if(flour==2){player_points+=1;}
+if(bkpwdr=2){player_points+=1;}
+if(temp=="375"){player_points+=2;}
+if(time=="10"){player_points+=2;}
+console.log(player_points);
+startoven();
+}
+
+
+function startoven(){
+
+console.log(player_points);
+Cookies.set('lastpoints', player_points, {expires: 0.003});
+player_points=Cookies.get('lastpoints');
+//var redirected = 'result.php?scor1e=${player_points}'
+//var a = {player_points};
+//var mylink = 'result.php';
+location='result.php' ;
+}
+
+
+
+
+
+</script>
+
+
+
+  </body>
+</html>
