@@ -26,8 +26,8 @@ img#dice {
   display: block;
   max-width: 300px;
   margin: auto;
-  border: 1px solid #3498db;
-  background: #3282b8;
+  border: 1px solid rgba(217,174,0,1);
+  background: rgba(255,212,38,1);
   padding: 10px 20px;
   font-size: 20px;
   font-family: "Comic Sans MS";
@@ -49,8 +49,8 @@ img#dice {
 .sub{
     display:block;
     margin:auto;
-    border: 1px solid #3498db;
-    background-color: #3282b8;
+    border: 1px solid rgba(217,174,0,1);
+    background-color: rgba(255,212,38,1);
     padding: 10px 20px;
     font-size: 15px;
     width: 100%;
