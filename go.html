@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Early Alzheimers</title>
+    <script src="draw.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158722140-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-158722140-1');
+</script>
+    </head>
+    <body style="background-color:rgba(255,212,38,1);">
+    
+    <div class="center">
+    <p align="center">Welcome to the game of chef! You are here to cook the best possible food for the master chef</p>
+    <p align="center">named Giorgio Delacarte to try out for his cooking team. First, you must get to the cooking palace. The directions are as shown:</p>
+    
+    <h1 align="center"><span id="test"></span></h1>
+    <h1 align="center"><span id="test2"></span></h1>
+    <h1 align="center"><span id="test3"></span></h1>
+    <h1 align="center"><span id="test4"></span></h1>
+    <h1 align="center"><span id="test5"></span></h1>
+   <div id="outer"> 
+<div id="some_div" text-align="center"></div>
+</div>
+</div>
+    
+    
+    <style>
+    #outer {
+  width: 100%;
+  text-align: center;
+}
+
+    #some-div {
+  display: inline-block;
+}
+    .center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+    </style>
+<script>
+  cr1=Math.floor(Math.random()*2);
+  console.log("cr1="+cr1);
+  cr2=Math.floor(Math.random()*2);
+  cr3=Math.floor(Math.random()*2);
+  cr4=Math.floor(Math.random()*2);
+  cr5=Math.floor(Math.random()*2);
+
+  if(cr1==0){
+    cr1="left";
+  }else if(cr1==1){
+    cr1="right";
+  }else{
+    cr1="right";
+  }
+
+  if(cr2==0){
+    cr2="left";
+  }else if(cr2==1){
+    cr2="right";
+  }else{
+    cr2="right";
+  }
+
+  if(cr3==0){
+    cr3="left";
+  }else if(cr3==1){
+    cr3="right";
+  }else{
+    cr3="right";
+  }
+
+  if(cr4==0){
+    cr4="left";
+  }else if(cr4==1){
+    cr4="right";
+  }else{
+    cr4="right";
+  }
+
+  if(cr5==0){
+    cr5="left";
+  }else if(cr5==1){
+    cr5="right";
+  }else{
+    cr5="right";
+  }
+//answers
+
+console.log(cr1,cr2,cr3,cr4,cr5);
+
+
+document.getElementById("test").innerHTML=cr1;
+document.getElementById("test2").innerHTML=cr2;
+document.getElementById("test3").innerHTML=cr3;
+document.getElementById("test4").innerHTML=cr4;
+document.getElementById("test5").innerHTML=cr5;
+
+
+Cookies.set('cr1', cr1,{expires:0.003});
+Cookies.set('cr2', cr2,{expires:0.003});
+Cookies.set('cr3', cr3,{expires:0.003});
+Cookies.set('cr4', cr4,{expires:0.003});
+Cookies.set('cr5', cr5,{expires:0.003});
+
+
+var timeLeft = 30;
+    var elem = document.getElementById('some_div');
+    
+    var timerId = setInterval(countdown, 1000);
+    
+    function countdown() {
+      if (timeLeft == 0) {
+        clearTimeout(timerId);
+        location="car.html";
+      } else {
+        elem.innerHTML = "MEMORIZE THIS! Clearing in "+timeLeft+" seconds!";
+        timeLeft--;
+      }
+    }
+
+
+
+</script>
+
+
+
+
+  </body>
+</html>
