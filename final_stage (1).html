@@ -6,6 +6,10 @@
 <title>Early Alzheimers</title>
     <script src="draw.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
     <link rel="stylesheet" type="text/css" href="style.css" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158722140-1"></script>
@@ -17,40 +21,40 @@
   gtag('config', 'UA-158722140-1');
 </script>
 <body style="background-color:rgba(255,212,38,1);">
-<img src = "brnsgr.jpg"  width = 200 height = 200>
+<img    class="productItem" src = "brnsgr.jpg"  width = 200 height = 200>
 <input type="button" value="-" id="brnminus" onclick="minusbrnsgr()">
 <input type="text" size="10" value="0" id="brncount">
 <input type="button" value="+" id="brnplus" onclick="addbrnsgr()">
 cups
 <br><br>
-<img src = "sugar.png"   width = 200 height = 200>
+<img class="productItem" src = "sugar.png"   width = 200 height = 200>
 <input type="button" value="-" id="sgrminus" onclick="minussgr()">
 <input type="text" size="10" value="0" id="sgrcount">
 <input type="button" value="+" id="sgrplus" onclick="addsgr()">
 cups
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src = "oven.jpg"   width = 300>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src = "oven.jpg"   width = 300> <div id="basket"></div>
 
 <br><br>
-<img src = "butter.png" width=200>
+<img  class="productItem" src = "butter.png" width=200>
 <input type="button" value="-" id="btrminus" onclick="minusbutter()">
 <input type="text" size="10" value="0" id="buttercount">
 <input type="button" value="+" id="btrplus" onclick="addbutter()">
 sticks
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button class="button button3" onclick="mix()">MIX</button>
 <br><br>
-<img src = "flour.png" width = 200 height = 200>
+<img class="productItem" src = "flour.png" width = 200 height = 200>
 <input type="button" value="-" id="flourminus" onclick="minusflour()">
 <input type="text" size="10" value="0" id="flourcount">
 <input type="button" value="+" id="flourplus" onclick="addflour()">
 cups
 <br><br>
-<img src = "bkpwdr.png" width = 200 height = 200>
+<img class="productItem" src = "bkpwdr.png" width = 200 height = 200>
 <input type="button" value="-" id="bkpwdrminus" onclick="minusbkpwdr()">
 <input type="text" size="10" value="0" id="bkpwdrcount">
 <input type="button" value="+" id="bkpwdrplus" onclick="addbkpwdr()">
 tsp
 <br>
-<img src="therm.png" width=50 height=200>
+<img class="productItem" src="therm.png" width=50 height=200>
 <select id="tempselect" onchange="tempselect()">
    <option value="Select an Option">Select an Option</option>
   <option value="200" >200</option>
@@ -60,7 +64,7 @@ tsp
   <option value="425">425</option>
 </select>
 <br><br>
-  <img src="stopwatch.png">
+  <img class="productItem" src="stopwatch.png">
  
 <select id="timeselect" onchange="timeselect()">
    <option value="Select an Option">Select an Option</option>
@@ -70,8 +74,9 @@ tsp
   <option value="20">20</option>
   <option value="25">25</option>
 </select>
+
 <style>
-input {
+input, select {
   border: 1px solid rgba(217,174,0,1);
   background: rgba(255,212,38,1);
   padding: 10px 20px;
@@ -81,6 +86,25 @@ input {
   transition: 0.8s;
 }
 </style>
+
+<script type="text/javascript">
+$(".productItem").draggable({
+        helper: 'clone',
+        handle: "productItem"
+    });
+
+    $("#basket").droppable({
+        accept: ".productItem",
+        drop: function(event, ui){
+            $("<div></div>")
+                .html(ui.draggable.text())
+                .appendTo($(this));
+        }
+    });
+    
+    $('#basket').hide();
+
+</script>
 
 <script>
 player_points=Cookies.get("newpoints");

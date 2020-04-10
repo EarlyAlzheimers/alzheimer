@@ -105,11 +105,11 @@
 console.log(cr1,cr2,cr3,cr4,cr5);
 
 
-document.getElementById("test").innerHTML=cr1;
-document.getElementById("test2").innerHTML=cr2;
-document.getElementById("test3").innerHTML=cr3;
-document.getElementById("test4").innerHTML=cr4;
-document.getElementById("test5").innerHTML=cr5;
+document.getElementById("test").innerHTML="First, the car goes on the "+cr1+" side";
+document.getElementById("test2").innerHTML="Then, the car goes on the "+cr2+" side";
+document.getElementById("test3").innerHTML="Then, the car goes on the "+cr3+" side";;
+document.getElementById("test4").innerHTML="Then, the car goes on the "+cr4+" side";;
+document.getElementById("test5").innerHTML= "Finally, the car goes on the "+cr5+" side";;
 
 
 Cookies.set('cr1', cr1,{expires:0.003});

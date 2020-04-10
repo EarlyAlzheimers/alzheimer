@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="">
   <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <body style="background-color:#c2e7ff;">
+    <body style="background-color:rgba(255,212,38,1);">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Early Alzheimers</title>
     <script src="draw.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <div id="wrapper">
+        <figure>
     <canvas id="resultCanvas" width="400" height="800"
-    style="border:3px solid #3282b8;">
+    style="border:3px solid rgba(217,174,0,1);">
     </canvas>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-    <img src="end.png" alt="see reults" id="results" onclick="finish();" >
-    <br></br>
-     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-    <button class="game btn4" onclick="bye();">Return Home</button>
     
+    <img src="end.png" alt="see reults" id="results" onclick="finish();" >
+    </figure>
+    <br></br>
+     </div>
+    <button class="game btn4" onclick="bye();">Return Home</button>
+    <style>
+    #wrapper{
+        text-align:center;
+    }
+    </style>
 <script>
 player_points=Cookies.get("lastpoints");
 player_points=parseInt(player_points);

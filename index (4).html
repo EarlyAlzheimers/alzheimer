@@ -43,7 +43,7 @@ body
 	-webkit-perspective: 1000;
 }
 
-h1, h2, h3, h4, h5, h6, p, a, 
+h2, h3, h4, h5, h6, p, a, 
 input, label, button, textarea, ul, li, label
 { position:relative; vertical-align:top; display:inline-block; padding:0; margin:0; }
 
@@ -399,7 +399,8 @@ input, label, button, textarea, ul, li, label
     
 <div class="center">
 <!--img src = "homepic.png" class="homepic" height=350 width=490-->
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<h1>Early Alzheimers</h1>
+<div id="cc"><h1>Early Alzheimers</h1></div>
+
       <br><br>
 <div id="world" class="world">
 
@@ -536,6 +537,8 @@ input, label, button, textarea, ul, li, label
   <br><br>
   <button onclick="go()" class="game btn1">Start The Game Of Chef (paper and pencil needed)</button>
   <br><br>
+  <button onclick="manual()" class="game btn1111">Game Manual</button>
+  <br><br>
 <button onclick="moca()" class="game btn2">Take the moca test</button>
 </div>
 <br><br>
@@ -555,6 +558,17 @@ body{
 
 
   <script>
+  function manual(){
+      var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+location="manual.html";
+  }
 function moca(){
         var cookies = document.cookie.split(";");
 
@@ -579,7 +593,9 @@ a set of direction, which you enter in as part of memory. Then, you are asked to
 <button onclick="submitcomment();" class="game btn11">Submit Feedback</button>
 
 <script>
-
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+    location = "no.html";
+}
 function go(){
 //crossroads
     var cookies = document.cookie.split(";");
