@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="favicon.ico"/> <title>Early Alzheimers</title>
+    <script src="moca.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158722140-1"></script>
+<embed src='background_music.mp3' hidden='true' border='0.5' autostart='true' loop='true'>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+</style>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-158722140-1');
+</script>
+      </head>
+<body style="background:linear-gradient(90deg, rgba(255,251,154,1) 0%, rgba(255,255,255,1) 50%, rgba(255,251,154,1) 100%);;">
+    <h1 align="center" style="font-family: 'Sriracha', cursive;">Some browsers are not compliant with this video. In the event of that situation, please visit the video
+    <a href="https://www.youtube.com/watch?v=ldMUbOXTFGM" target="_blank">here</a></h1>
+
+    <p align="center"><img src="moca2.png" id=div2></p>
+
+<br>
+ <p align="center"><button id="print" class="game btn6" onclick="printContent('div2')" >Print Test</button></p>
+<br>
+   <p align="center"> <iframe width="616" height="800" src="https://www.youtube-nocookie.com/embed/ldMUbOXTFGM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+
+
+
+
+ <p align="center"><input type="text" placeholder="MoCA score" id="tee" class="game btn7">
+ <p align="center"><input type="text" placeholder="Get to Chef score" id="tee2" class="game btn8">
+<button onclick="submit()" class="game btn9">Submit</button>
+</p>
+<style>
+::placeholder{
+    color: black;
+}
+</style>
+<script>
+function submit(){
+var mocascore=document.getElementById("tee").value;
+var chefscore=document.getElementById("tee2").value;
+Cookies.set('MoCA',mocascore,{expires:0.001});
+Cookies.set('chef',chefscore,{expires:0.001})
+location="send.php";
+}
+</script>
+</body>
+</html>

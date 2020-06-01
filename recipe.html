@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="favicon.ico"/> <title>Early Alzheimers</title>
+    <script src="draw.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158722140-1"></script>
+<embed src='background_music.mp3' hidden='true' border='0.5' autostart='true' loop='true'>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+</style>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-158722140-1');
+</script>
+ <h3 align="center">Delicious Sugar Cookie Recipe 😋</h3>
+<br>
+  </head>
+  <body style="background:linear-gradient(90deg, rgba(255,251,154,1) 0%, rgba(255,255,255,1) 50%, rgba(255,251,154,1) 100%);;">
+      <h1 align="center">Write down this recipe. You are being timed, so do it quickly.</h1>
+      
+      <div id="cookies"><img src="Final_COOKIE.jpg" align="center" style="width:60vw; height:36vw;"></div>
+      <br>
+      <br>
+      <br>
+      <div id="cc">
+      <ul>
+  <li> Add 1/4 cup of Brown Sugar</li>
+  <li> Add 1/2 cup of Sugar</li>
+  <li> Add 2 cups of Flour</li>
+  <li> Add 2 tsp of Baking Powder</li>
+  <li> Bake in oven for 10 minutes at 375 degrees</li>
+</ul>  
+</div>
+    <canvas id="myCanvas" width="0" height="0"
+    style="border:1px solid #000000;">
+    </canvas>
+    <br><br>
+    <button onclick="end()" class="btn" >Continue</button>
+<style>
+h3{
+    font-size:60px;
+  font-family: 'Sriracha', cursive;
+    font-weight:bold;
+}
+img{
+    width:500px;
+}
+h1{
+  font-family: 'Sriracha', cursive;
+    font-size:35px;
+}
+h2{
+  font-family: 'Sriracha', cursive;
+    font-size:45px;
+}
+li:not(:last-child){
+    margin-bottom:5px;
+}
+
+ul{
+    display:table;
+    margin: 0 auto;
+     font-family: 'Sriracha', cursive;
+    font-size:30px;
+}
+
+body{
+    justify-content:center;
+    align-items:center;
+    display:block;
+}
+
+#cookies{
+    text-align:center;
+}
+
+li{
+    list-style:none;
+}
+
+li:before{
+    content:"\1F36A  ";
+}
+
+.btn{
+  display: block;
+  border: 1px solid rgba(255,212,38,1);
+  background: rgba(255,212,38,1);
+  padding: 10px 20px;
+  font-size: 20px;
+  max-width: 300px;
+  margin: auto;
+    font-family: 'Sriracha', cursive;
+  cursor: pointer;
+  transition: 0.8s;
+}
+
+</style>
+
+
+
+  <script>
+
+  cr1=Cookies.get("cr1");
+  cr2=Cookies.get("cr2");
+  cr3=Cookies.get("cr3");
+  cr4=Cookies.get("cr4");
+  cr5=Cookies.get("cr5");
+  acr1=Cookies.get("acr1");
+  acr2=Cookies.get("acr2");
+  acr3=Cookies.get("acr3");
+  acr4=Cookies.get("acr4");
+  acr5=Cookies.get("acr5");
+  player_points=Cookies.get("points");
+  player_points=parseInt(player_points);
+  console.log(acr3);
+  console.log(cr3);
+  console.log(player_points);
+  if(acr1==cr1){
+    player_points+=2.5;
+    console.log("true"+acr1+cr1);
+  }else{
+    console.log("false");
+  }
+
+  if(acr2==cr2){
+    player_points+=2.5;
+    console.log("true"+acr2+cr2);
+  }else{console.log("false");}
+
+  if(acr3==cr3){
+    player_points+=2.5;
+    console.log("true"+acr3+cr3)
+  }else{console.log("false");}
+
+  if(acr4==cr4){
+    player_points+=2.5;
+    console.log("true"+acr4+cr4);
+  }else{console.log("false");}
+
+  if(acr5==cr5){
+    player_points+=2.5;
+    console.log("true"+acr5+cr5);
+  }else{console.log("false");}
+
+  console.log("points="+player_points);
+
+  console.log("acr1="+acr1);
+  console.log("cr1="+cr1);
+  console.log("points="+player_points);
+  Cookies.set('carpoints',player_points,{expires:0.003});
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+  ctx.font="15px Sriracha";
+ctx.fillStyle = "black";
+ctx.fillText("1. Add a quarter cup of brown sugar", 5, 40);
+ctx.fillText("2. Add half a cup of normal sugar", 5,75);
+ctx.fillText("3. Add 1 stick of butter",5,110);
+ctx.fillText("4. Add 2 cups of flour", 5, 145);
+ctx.fillText("5. Add 2 tsp of baking powder and mix", 5, 180);
+ctx.fillText("6. Put it in the oven for 10 minutes at 375 degrees", 5, 215);
+ctx.fillText("NOTE: Order of ingredients is important", 5, 500);
+var startTime, endTime;
+
+
+  startTime = new Date();
+function end() {
+  endTime = new Date();
+  var timeDiff = endTime - startTime; //in ms
+  // strip the ms
+  timeDiff /= 1000;
+
+  // get seconds
+  var seconds = Math.round(timeDiff);
+  if(seconds<=10){
+      seconds=100;
+  }
+  console.log(seconds + " seconds");
+  var pointsadded = (100-seconds)/6;
+  player_points+=pointsadded;
+  console.log(pointsadded);
+  console.log(player_points);
+  Cookies.set('newpoints', player_points,{expires:0.003});
+  location = "pp.html";
+}
+  </script>
+  </body>
+</html>

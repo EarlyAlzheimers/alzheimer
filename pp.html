@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/> <title>Early Alzheimers</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script
+    type="text/javascript"
+    src="//code.jquery.com/jquery-1.5.2.js"
+    
+  ></script>
+   <style>
+       @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+   </style>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158722140-1"></script>
+<embed src='background_music.mp3' hidden='true' border='0.5' autostart='true' loop='true'>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-158722140-1');
+</script>
+    
+
+
+  <style id="compiled-css" type="text/css">
+      #basket{
+    height: 400px;
+
+        
+}
+  </style>
+
+</head>
+<body style="background:linear-gradient(90deg, rgba(255,251,154,1) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 75%, rgba(255,251,154,1) 100%);;">
+    <div id="items" align="center">
+    <img  id="brnsgr"  class="productItem" src = "brnsgr.jpg"  width = 200 height = 200 ondrop="addbrnsgr();">&emsp;&emsp;&emsp;&emsp;
+<div id="v1"><input type="button" value="-" id="brnminus" onclick="minusbrnsgr()">
+<input type="text" size="4" value="0" id="brncount">
+<input type="button" value="+" id="brnplus" onclick="addbrnsgr()">
+cups
+</div>
+<br><br>
+<img  id="sgr" class="productItem" src = "sugar.png"   width = 200 height = 200 ondragstop="addsgr();">&emsp;&emsp;&emsp;&emsp;
+<input type="button" value="-" id="sgrminus" onclick="minussgr()">
+<input type="text" size="4" value="0" id="sgrcount">
+<input type="button" value="+" id="sgrplus" onclick="addsgr()">
+cups
+<br><br>
+<img  id="butter" class="productItem" src = "butter.png" width=200 ondragend="addbutter();">&emsp;&emsp;&emsp;&emsp;
+<input type="button" value="-" id="btrminus" onclick="minusbutter()">
+<input type="text" size="4" value="0" id="buttercount">
+<input type="button" value="+" id="btrplus" onclick="addbutter()">
+sticks
+
+<br><br>
+<img id="flour" class="productItem" src = "flour.png" width = 200 height = 200 ondragend="addflour();">&emsp;&emsp;&emsp;&emsp;
+<input type="button" value="-" id="flourminus" onclick="minusflour()">
+<input type="text" size="4" value="0" id="flourcount">
+<input type="button" value="+" id="flourplus" onclick="addflour()">
+cups
+<br><br>
+<img id="bkpwdr" class="productItem" src = "bkpwdr.png" width = 200 height = 200 ondragend="addbkpwdr();">&emsp;&emsp;&emsp;&emsp;
+<input type="button" value="-" id="bkpwdrminus" onclick="minusbkpwdr()">
+<input type="text" size="4" value="0" id="bkpwdrcount">
+<input type="button" value="+" id="bkpwdrplus" onclick="addbkpwdr()">
+tsp
+<br>
+<img src="therm.png" width=50 height=200>&emsp;&emsp;&emsp;&emsp;
+<select id="tempselect" onchange="tempselect()">
+   <option value="Select an Option">Select an Option</option>
+  <option value="200" >200</option>
+  <option value="225">225</option>
+  <option value="350">350</option>
+  <option value="375">375</option>
+  <option value="425">425</option>
+</select>
+<br><br>
+  <img  src="stopwatch.png" height="150">&emsp;&emsp;&emsp;&emsp;
+ 
+<select id="timeselect" onchange="timeselect()">
+   <option value="Select an Option">Select an Option</option>
+  <option value="5" >5</option>
+  <option value="10">10</option>
+  <option value="15">15</option>
+  <option value="20">20</option>
+  <option value="25">25</option>
+</select>
+</div>
+<br><br>
+<div id="basket" align="center"><img id="mixer" src="whisk.jpg" width="200"><br><img id="oven" src = "dough.png"   width = 300><br><br><button class="button button3" onclick="mix()">MIX</button></div>
+
+<style>
+
+input, select{
+    border: 1px solid rgba(217,174,0,1);
+  background: rgba(255,212,38,1);
+  font-size: 15px;
+  padding:5px;
+  font-family: 'Sriracha', cursive;
+  cursor: pointer;
+  transition: 0.8s;
+}
+
+#v1, img{
+ display:inline-block;
+ vertical-align:middle;
+}
+
+</style>
+
+<style>
+@keyframes nudge {  
+   0%{
+       transform: translate(50px, 10px);
+   }
+   10%{
+       transform: translate(-50px, -10px);
+   }
+   20%{
+       transform: translate(50px, 10px);
+   }
+   30%{
+       transform: translate(-50px, -10px);
+   }
+   40%{
+      transform: translate(50px, 10px); 
+   }
+   50%{
+       transform: translate(-50px, -10px);
+   }
+   60%{
+       transform: translate(50px, 10px);
+   }
+   70%{
+       transform: translate(-50px, -10px);
+   }
+   80%{
+     transform: translate(50px, 10px);  
+   }
+   90%{
+      transform: translate(-50px, -10px); 
+   }
+   100% {
+      transform: translate(50px, 10px);
+   } 
+}
+</style>
+
+<script>
+player_points=Cookies.get("newpoints");
+player_points=parseInt(player_points);
+console.log(player_points);
+var brnsgr=0;
+var sgr=0;
+var butter=0;
+var flour=0;
+var bkpwdr=0;
+var temp=0;
+var time=0;
+
+function tempselect(){
+temp=document.getElementById("tempselect").value;
+}
+
+function timeselect(){
+time=document.getElementById("timeselect").value;
+}
+
+function addbrnsgr(){
+  var brnsgrEl = document.getElementById("brncount");
+      brnsgr+=1/4;
+      brnsgrEl.value = brnsgr;
+
+
+}
+
+function minusbrnsgr(){
+  var brnsgrEl = document.getElementById("brncount");
+  if(brnsgr!=0){brnsgr-=1/4;}
+      brnsgrEl.value = brnsgr;
+}
+
+function addsgr(){
+  var sgrEl = document.getElementById("sgrcount");
+      sgr+=1/4;
+      sgrEl.value = sgr;
+}
+
+function minussgr(){
+  var sgrEl = document.getElementById("sgrcount");
+      if(sgr!=0){sgr-=1/4;}
+      sgrEl.value = sgr;
+
+}
+
+function addbutter(){
+  var butterEl = document.getElementById("buttercount");
+      butter+=1/2;
+      butterEl.value = butter;
+}
+
+function minusbutter(){
+  var butterEl = document.getElementById("buttercount");
+      if(butter!=0){butter-=1/2;}
+      butterEl.value = butter;
+}
+
+function addflour(){
+  var flourEl = document.getElementById("flourcount");
+      flour+=1/2;
+      flourEl.value = flour;
+}
+
+function minusflour(){
+  var flourEl = document.getElementById("flourcount");
+      if(flour!=0){flour-=1/2;}
+      flourEl.value = flour;
+}
+
+function addbkpwdr(){
+  var bkpwdrEl = document.getElementById("bkpwdrcount");
+      bkpwdr+=1/4;
+      bkpwdrEl.value = bkpwdr;
+}
+
+function minusbkpwdr(){
+  var bkpwdrEl = document.getElementById("bkpwdrcount");
+      if(bkpwdr!=0){bkpwdr-=1/4;}
+      bkpwdrEl.value = bkpwdr;
+}
+
+
+
+
+var hack=0;
+
+
+function mix(){
+document.getElementById("mixer").style.animation="nudge 5s linear";
+if(brnsgr==0.25){player_points+=1;}else{hack+=1};
+if(sgr==0.5){player_points+=1;}else{hack+=1};
+if(butter==1){player_points+=1;}else{hack+=1};
+if(flour==2){player_points+=1;}else{hack+=1};
+if(bkpwdr=2){player_points+=1;}else{hack+=1};
+if(temp=="375"){player_points+=2;}else{hack+=1};
+if(time=="10"){player_points+=2;}else{hack+=1};
+if(hack>=6){
+    player_points-=10;
+}
+console.log(player_points);
+setTimeout(function(){ startoven(); }, 5000);
+
+}
+
+
+function startoven(){
+
+console.log(player_points);
+Cookies.set('lastpoints', player_points, {expires: 0.003});
+player_points=Cookies.get('lastpoints');
+//var redirected = 'result.php?scor1e=${player_points}'
+//var a = {player_points};
+//var mylink = 'result.php';
+location='result.php' ;
+}
+
+
+
+
+
+</script>
+
+
+    
+
+  <!-- TODO: Missing CoffeeScript 2 -->
+
+  <script type="text/javascript">//<![CDATA[
+
+
+    $(".productItem").draggable({
+        helper: 'clone',
+        handle: "productItem"
+    });
+
+    $("#basket").droppable({
+        accept: ".productItem",
+        drop: function(event, ui){
+            $("<div></div>")
+                .html(ui.draggable.text())
+                .appendTo($(this));
+                //work on id
+                console.log(event.target.id);
+                console.log(ui.draggable.context.id);
+                if(ui.draggable.context.id=="brnsgr"){
+                    addbrnsgr();
+                }else if(ui.draggable.context.id=="sgr"){
+                    addsgr();
+                }else if(ui.draggable.context.id=="flour"){
+                    addflour();
+                }else if(ui.draggable.context.id=="bkpwdr"){
+                    addbkpwdr();
+                }else if(ui.draggable.context.id=="butter"){
+                    addbutter();
+                }
+                
+                
+                
+                
+        }
+    });
+
+
+
+  //]]></script>
+
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "QGdCv"
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="favicon.ico"/> <title>Early Alzheimers</title>
+    <script src="draw.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158722140-1"></script>
+<embed src='background_music.mp3' hidden='true' border='0.5' autostart='true' loop='true'>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-158722140-1');
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+h1,h2{
+    font-family: 'Sriracha', cursive;
+}
+</style>
+<script>
+    function manual(){
+        location="manual.html";
+    }
+    </script>
+  </head>
+  <body style="background:linear-gradient(90deg, rgba(255,251,154,1) 0%, rgba(255,255,255,1) 50%, rgba(255,251,154,1) 100%);">
+        <button onclick="manual()" class="game btn1111">HELP</button>
+  <h1 align="center">Let's drive to the kitchen!</h1>
+  <h2 align="center">Use the left and right arrow keys on your keyboard to move the car. Then hit the record button after your choice has been made.</h2>
+<p align="center">
+<img src = "ZQ6A.gif" class="var" width="200">
+</p>
+<div id="w">
+  <span id="opt">You are in the middle</span>
+  <br>
+  <br>
+  <button class="game btn11111" onclick="test();"><span id="opt2">Record Option Number 1</span></button>
+  <br><br>
+  <span id="recorded" style="display:none">OPTION RECORDED!</span>
+  <br><br>
+  <br>
+  <br>
+  <span id="lr">Left</span>
+  &emsp;&emsp;&emsp;
+  <span id="lr">Right</span>
+</div>
+
+<div class="road"></div>
+<img id="cr" src="car.png">
+
+<style>
+#recorded{
+    font-family: 'Sriracha', cursive;
+    font-size:20px;
+    color:red;
+}
+#lr {
+    font-family: 'Sriracha', cursive;
+}
+.road {
+  position: relative;
+  background-color: #333;
+  width: 200px;
+  height: 50vh;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.road:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  height: 2500px;
+  border-right: 4px dashed #fff;
+  top: -1501px;
+  transition: all 2s ease;
+  animation: drive 25s infinite linear;
+}
+
+#cr {
+  position: absolute;
+  overflow: visible;
+  width: 50px;
+  top:110%;
+  left: 48.5%;
+}
+
+@keyframes drive {
+  0% {
+    top: -501px;
+  }
+  50% {
+    top: -334px;
+  }
+  75% {
+    top: -167px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+#opt {
+  display: inline-block;
+  font-family: 'Sriracha', cursive;
+}
+
+#w {
+  text-align: center;
+}
+
+
+
+</style>
+
+
+<script>
+ cr1=Cookies.get("cr1");
+ cr2=Cookies.get("cr2");
+ cr3=Cookies.get("cr3");
+ cr4=Cookies.get("cr4");
+ cr5=Cookies.get("cr5");
+
+player_points=0;
+
+if(cr1=="right"){
+    var cr1op = "left";
+}else{var cr1op="right"}
+
+if(cr2=="right"){
+    var cr2op = "left";
+}else{var cr2op="right"}
+
+if(cr3=="right"){
+    var cr3op = "left";
+}else{var cr3op="right"}
+
+if(cr4=="right"){
+    var cr4op = "left";
+}else{var cr4op="right"}
+
+if(cr5=="right"){
+    var cr5op = "left";
+}else{var cr5op="right"}
+var car = document.getElementById("cr");
+var left = 48.5;
+window.addEventListener("keydown", function (event) {
+  if (event.which == 37) {
+    //left
+    if(left>=48.5){
+    car.style.left = `${left - 4}%`;
+    left -= 4;
+    if(left==48.5){
+        document.getElementById("opt").innerHTML = "You are in the middle.";
+    }else if(left<48.5){
+        document.getElementById("opt").innerHTML = "You are on the left side.";
+    }else{
+        document.getElementById("opt").innerHTML = "Your are on the right side.";
+    }
+    }
+  }
+  if (event.which == 39) {
+    //right
+    if(left<=48.5){
+    car.style.left = `${left + 4}%`;
+    left += 4;
+    if(left==48.5){
+        document.getElementById("opt").innerHTML = "You are in the middle.";
+    }else if(left<48.5){
+        document.getElementById("opt").innerHTML = "You are on the left side.";
+    }else{
+        document.getElementById("opt").innerHTML = "Your are on the right side.";
+    }
+    }
+  }
+});
+var counter = 5;
+var num = 1;
+function count(){
+ if (counter < 1) {
+    Cookies.set('acr1', acr1,{expires:0.003});
+    Cookies.set('acr2', acr2,{expires:0.003});
+    Cookies.set('acr3', acr3,{expires:0.003});
+    Cookies.set('acr4', acr4,{expires:0.003});
+    Cookies.set('acr5', acr5,{expires:0.003});
+    Cookies.set('points', player_points,{expires:0.003});
+    location = "recipe.html";
+  }
+}
+
+function hide(){
+    document.getElementById("recorded").style.display="none";
+}
+
+function test() {
+    document.getElementById("recorded").style.display="inline"; 
+    setTimeout(function(){hide();}, 700);
+      if (left < 48.5) {
+    
+    if(counter == 5){acr1 = "left";}
+    if(counter == 4){acr2 = "left";}
+    if(counter == 3){acr3 = "left";}
+    if(counter == 2){acr4 = "left";}
+    if(counter == 1){acr5 = "left";}
+    
+  }else{
+    if(counter == 5){acr1 = "right";}
+    if(counter == 4){acr2 = "right";}
+    if(counter == 3){acr3 = "right";}
+    if(counter == 2){acr4 = "right";}
+    if(counter == 1){acr5 = "right";}
+  }
+  counter = counter - 1;
+    
+    if(num==5){
+        count();
+    }else{
+    num=num+1;
+    document.getElementById("opt2").innerHTML = "Record Option Number "+num;
+
+  console.log(counter);
+  document.getElementById("cr").style.left='48.5%';
+  count();
+}
+}
+
+count();
+
+</script>
+
+  </body>
+</html>
